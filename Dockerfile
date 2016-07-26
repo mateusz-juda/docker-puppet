@@ -16,7 +16,7 @@ RUN chmod +x /etc/my_init.d/50_add_puppet_cron.sh
 
 # Install actual Puppet agent run command
 ADD scripts/run-puppet-agent.sh /sbin/run-puppet-agent
-RUN chmod +x /sbin/run-puppet-agent
+RUN chmod +x /sbin/run-puppet-agent && puppet agent --enable
 
 # Use the runit init system.
 CMD ["/sbin/my_init"]
