@@ -11,10 +11,10 @@ if [ ! -z "$PUPPET_AGENT_ENVIRONMENT" ]; then
 fi
 
 # if there is a puppet master host defined, append the server and port parameters
-if [ ! -z "$PUPPETMASTER_TCP_HOST" ]; then 
+if [ ! -z "$PUPPETMASTER_TCP_HOST" ]; then
     # default puppet master port is 8410
     test -z "$PUPPETMASTER_TCP_PORT" && export PUPPETMASTER_TCP_PORT="8410"
-    
+
     puppet_agent_args="$puppet_agent_args --server $PUPPETMASTER_TCP_HOST --masterport $PUPPETMASTER_TCP_PORT"
 fi
 
@@ -26,6 +26,11 @@ fi
 # if they want debug
 if [ ! -z "$PUPPET_AGENT_DEBUG" ]; then
     puppet_agent_args="$puppet_agent_args --debug"
+fi
+
+# add extra arguments, e.g. --no-stringify_facts
+if [ ! -z "$PUPPET_AGENT_EXTRA_ARGS" ]; then
+    puppet_agent_args="$puppet_agent_args $PUPPET_AGENT_EXTRA_ARGS"
 fi
 
 # run the puppet agent if it's not already running
