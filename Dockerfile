@@ -2,12 +2,9 @@ FROM capd/docker-baseimage:0.1.0
 MAINTAINER Mateusz Juda <mateusz.juda@{gmail.com,ii.uj.edu.pl}>
 # Based on  rfkrocktk/docker-puppet
 
-
 ENV HOME /root
 ENV LANG en_US.UTF-8
 RUN locale-gen en_US.UTF-8
-
-
 
 # Install the latest stable Puppet client
 RUN apt-get update -q 2 && DEBIAN_FRONTEND=noninteractive \
