@@ -1,4 +1,4 @@
-FROM capd/docker-baseimage:0.1.0
+FROM capd/baseimage:0.1.0
 MAINTAINER Mateusz Juda <mateusz.juda@{gmail.com,ii.uj.edu.pl}>
 # Based on  rfkrocktk/docker-puppet
 
